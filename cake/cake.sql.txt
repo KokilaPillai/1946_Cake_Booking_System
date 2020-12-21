@@ -1,0 +1,100 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 20, 2020 at 10:34 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cake`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cakes`
+--
+
+CREATE TABLE `cakes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `image` longblob NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cakes`
+--
+
+INSERT INTO `cakes` (`id`, `name`, `image`, `type`, `quantity`, `price`) VALUES
+(1, 'black forest', 0x626c61636b20666f726573742e6a7067, 'eggless', 3, 700),
+(2, 'chocolate fudge', 0x63686f636f6c6174652066756467652e6a7067, 'egg', 5, 1500),
+(3, 'chocolate truffle', 0x63686f636f6c6174652074727566666c652e6a7067, 'egg', 10, 7500),
+(4, 'smash cake', 0x736d6173682063616b652e6a7067, 'eggless', 1, 300),
+(5, 'vanilla cake', 0x76616e696c6c612063616b652e6a7067, 'egg', 3, 800);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `register`
+--
+
+CREATE TABLE `register` (
+  `Username` varchar(50) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Role` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`Username`, `Password`, `Role`) VALUES
+('abc', 'abc123', 'user'),
+('kokip', 'koki123', 'admin'),
+('preeya', '546556', 'user');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cakes`
+--
+ALTER TABLE `cakes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `register`
+--
+ALTER TABLE `register`
+  ADD UNIQUE KEY `Username` (`Username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cakes`
+--
+ALTER TABLE `cakes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
